@@ -1,6 +1,6 @@
-import fetch from 'isomorphic-unfetch';
+import fetch from 'isomorphic-unfetch'
 
-const Blog = ({ blog }) => {
+const BlogId = ({ blog }) => {
     return (
         <div>
             <h1>{blog.title}</h1>
@@ -21,9 +21,10 @@ export const getStaticPaths = async () => {
         key
     )
     const repos = await res.json()
+    console.log(repos)
 
     const paths = repos.contents.map(repo => `/blogs/${repo.id}`)
-    return { paths, fallback: false };
+    return { paths, fallback: false }
 }
 
 export const getStaticProps = async context => {
@@ -36,7 +37,7 @@ export const getStaticProps = async context => {
         `https://next-jamstack.microcms.io/api/v1/blogs/${id}`,
         key
     )
-    const blog = await res.json();
+    const blog = await res.json()
 
     return {
         props: {
@@ -45,5 +46,5 @@ export const getStaticProps = async context => {
     }
 }
 
-export default Blog
+export default BlogId
 
