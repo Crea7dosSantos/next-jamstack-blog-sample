@@ -1,7 +1,6 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import fetch from 'isomorphic-unfetch'
 import Link from 'next/link'
+import React from 'react'
 
 const HOME = ({ blogs }) => {
   return (
